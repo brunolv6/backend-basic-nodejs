@@ -9,6 +9,9 @@ const { uuid, isUuid } = require('uuidv4');
 //variável referente ao pacote express
 const app = express();
 
+//cors para poder utilizar o servidor
+app.use(cors())
+
 //para recebr infos JSON
 //toda info passa aqui??
 app.use(express.json())
