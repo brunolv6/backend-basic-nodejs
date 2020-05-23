@@ -3,6 +3,9 @@
 //importando lib express
 const express = require('express');
 
+//pacote para permitir uso daqui
+const cors = require('cors');
+
 //identificador unico
 const { uuid, isUuid } = require('uuidv4');
 
