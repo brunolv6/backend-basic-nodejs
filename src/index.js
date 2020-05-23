@@ -84,10 +84,10 @@ app.get('/projects', /* logRequest, middlewaare1, middleware2,  */ (request, res
     // console.log('3')
 
     //paramentros enviados 
-    const { owner } = request.query;
+    const { title } = request.query;
 
-    const results = owner
-        ? projects.filter( project => project.owner.includes(owner))
+    const results = title
+        ? projects.filter( project => project.owner.includes(title))
         : projects;
 
     //reponse tem os métodos send, json [neste caso deve ser [] ou {}]
@@ -96,9 +96,9 @@ app.get('/projects', /* logRequest, middlewaare1, middleware2,  */ (request, res
 
 app.post('/projects', (request, response) => {
 
-    const { name, owner } = request.body;
+    const { title, owner } = request.body;
 
-    const project = { id: uuid(), name, owner}
+    const project = { id: uuid(), title, owner}
 
     projects.push(project)
 
@@ -109,7 +109,7 @@ app.put('/projects/:id', (request, response) => {
 
     const { id } = request.params;
 
-    const { name, owner } = request.body;
+    const { title, owner } = request.body;
 
     const projectIndex = projects.findIndex( project => project.id == id);
 
@@ -118,7 +118,7 @@ app.put('/projects/:id', (request, response) => {
     } else {
         const project = {
             id,
-            name,
+            title,
             owner
         }
 
